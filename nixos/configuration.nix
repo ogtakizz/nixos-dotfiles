@@ -13,7 +13,6 @@
       ./modules/drivers.nix
       ./modules/network.nix     
       ./modules/users.nix
-      ./modules/zsh.nix
       inputs.home-manager.nixosModules.home-manager
     ];
 
@@ -58,14 +57,7 @@
 
 # Enable zsh system-wide
   programs.zsh = {
-    enable = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    shellAliases = {
-      nixhomeedit = "sudo nano ~/mysystem/nixos/home.nix";
-      nixrebuild = "cd ~/mysystem && sudo nixos-rebuild switch --flake .#myNixos";
-      nixedit = "sudo nano ~/mysystem/nixos/configuration.nix";
-    };
+    enable = true;  
   }; 
 
   # Set zsh as default shell for all users
