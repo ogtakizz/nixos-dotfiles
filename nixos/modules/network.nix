@@ -1,18 +1,30 @@
-{ pkgs, ... }
+{ pkgs, ... }:
 
 {
   networking = {
     hostName = "nixos";
-
-    networkManager.enable = true;
+    
+    networkmanager.enable = true; # M minúsculo
 
     firewall = {
- 	Enable = true;
-	#allowedTCPPorts = [ 80 443 ];
-	#allowedUDPPorts = [ 4000 5000 ];
+      enable = true; # e minúsculo
+      # allowedTCPPorts = [ 80 443 ];
+      # allowedUDPPorts = [ 4000 5000 ];
     };
   };
+
+  time.timeZone = "America/Sao_Paulo"; # Z maiúsculo
   
-  time.timezone = "America/Sao_Paulo";
-  i18n.defaultLocale = "pt_BR.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "pt_BR.UTF-8";
+    LC_IDENTIFICATION = "pt_BR.UTF-8";
+    LC_MEASUREMENT = "pt_BR.UTF-8";
+    LC_MONETARY = "pt_BR.UTF-8";
+    LC_NAME = "pt_BR.UTF-8";
+    LC_NUMERIC = "pt_BR.UTF-8";
+    LC_PAPER = "pt_BR.UTF-8";
+    LC_TELEPHONE = "pt_BR.UTF-8";
+    LC_TIME = "pt_BR.UTF-8";
+  };
 }

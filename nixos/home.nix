@@ -7,10 +7,17 @@
   home.username = "garcia";
   home.homeDirectory = "/home/garcia";
 
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "25.05"; 
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
+  programs.git = {
+    enable = true;
+    userName = "ogtakizz";
+    userEmail = "91156885+ogtakizz@users.noreply.github.com";
+    extraConfig = {
+       init.defaultBranch = "main";
+    };
+  }; 
+
   home.packages = with pkgs; [
 	discord
 	heroic
@@ -32,7 +39,7 @@
   };
 
   home.sessionVariables = {
-    # EDITOR = "nvim";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.

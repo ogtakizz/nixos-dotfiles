@@ -15,4 +15,6 @@
   packages = with pkgs; [
 
   ];
+ };
+
 }
