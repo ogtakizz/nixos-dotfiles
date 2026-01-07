@@ -13,6 +13,7 @@
       ./modules/drivers.nix
       ./modules/network.nix     
       ./modules/users.nix
+      ./modules/zsh.nix
       inputs.home-manager.nixosModules.home-manager
     ];
 

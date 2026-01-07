@@ -4,16 +4,16 @@
   networking = {
     hostName = "nixos";
     
-    networkmanager.enable = true; # M minúsculo
+    networkmanager.enable = true;
 
     firewall = {
-      enable = true; # e minúsculo
+      enable = true; 
       # allowedTCPPorts = [ 80 443 ];
       # allowedUDPPorts = [ 4000 5000 ];
     };
   };
 
-  time.timeZone = "America/Sao_Paulo"; # Z maiúsculo
+  time.timeZone = "America/Sao_Paulo";
   
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
