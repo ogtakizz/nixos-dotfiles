@@ -7,7 +7,7 @@
 	};
 
 	environment.systemPackages = with pkgs; [
-		aylur-ags
+		ags
 		brightnessctl
 		networkmanagerapplet
 		playerctl
