@@ -6,6 +6,9 @@
 		xwayland.enable = true;
 	};
 
+	services.displayManager.sessionPackages = [ pkgs.hyprland ];
+  	services.displayManager.defaultSession = "hyprland";
+
 	environment.systemPackages = with pkgs; [
 		ags
 		brightnessctl
