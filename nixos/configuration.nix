@@ -13,6 +13,7 @@
       ./modules/drivers.nix
       ./modules/network.nix     
       ./modules/users.nix
+      ./modules/hyprland.nix
       inputs.home-manager.nixosModules.home-manager
     ];
 
