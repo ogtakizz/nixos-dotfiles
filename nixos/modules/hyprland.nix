@@ -10,7 +10,8 @@
   	services.displayManager.defaultSession = "hyprland";
 
 	environment.systemPackages = with pkgs; [
-		ags
+		quickshell
+		zenity
 		brightnessctl
 		networkmanagerapplet
 		playerctl
