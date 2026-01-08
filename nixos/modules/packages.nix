@@ -2,7 +2,9 @@
 
 {
   
-  environment.systemPackages = with pkgs; [
+   environment.systemPackages = with pkgs; [
+ 	nwg-look	
+	bibata-cursors
 	neovim
 	wget
 	gnome-tweaks
@@ -20,6 +22,9 @@
 	bluez-tools
 	logmein-hamachi
 	haguichi
+	slurp
+	grim
+	kdePackages.okular
 	python3
      ];
   
