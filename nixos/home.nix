@@ -10,6 +10,7 @@
 
   home.username = "garcia";
   home.homeDirectory = "/home/garcia";
+  home.stateVersion = "25.05";
 
   programs.gh = {
     enable = true;
