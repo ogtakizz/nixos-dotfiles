@@ -3,7 +3,12 @@
 {
   
    environment.systemPackages = with pkgs; [
- 	nwg-look	
+	chafa
+	unzip
+	zip
+	p7zip
+	unrar
+	nwg-look	
 	bibata-cursors
 	neovim
 	wget

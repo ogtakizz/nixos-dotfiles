@@ -88,6 +88,8 @@
 	jetbrains.idea
 	qbittorrent
 	libreoffice-fresh
+	cava
+	tty-clock
 	pipx
   ];
 
