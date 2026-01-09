@@ -2,16 +2,14 @@
 
 {
   imports = [
-    ./modules/zsh.nix
-  ];  
-
+     ./modules/zsh.nix
+     ./modules/neovim/nvim.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
   home.username = "garcia";
   home.homeDirectory = "/home/garcia";
-
-  home.stateVersion = "25.05"; 
 
   programs.gh = {
     enable = true;

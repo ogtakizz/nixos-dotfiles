@@ -10,7 +10,6 @@
 	unrar
 	nwg-look	
 	bibata-cursors
-	neovim
 	wget
 	gnome-tweaks
 	git
