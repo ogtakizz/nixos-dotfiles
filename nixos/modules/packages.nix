@@ -3,6 +3,8 @@
 {
   
    environment.systemPackages = with pkgs; [
+	hydralauncher
+	gamescope
 	chafa
 	unzip
 	zip

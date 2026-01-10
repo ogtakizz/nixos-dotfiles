@@ -25,6 +25,12 @@
      };
    };
 
+  fileSystems."/mnt/jogos_windows" = {
+  device = "/dev/disk/by-uuid/455110F54AEDA354";
+  fsType = "ntfs-3g";
+  options = [ "rw" "uid=1000" "gid=1000" "umask=0022" "nofail" ];
+  };
+
   # Enable Java on the system
   programs.java = {
     enable = true;

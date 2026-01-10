@@ -43,10 +43,10 @@
 	";   
 
         shellAliases = {
-      		nixedithome = "nvim ~/mysystem/nixos/home.nix";
-      		nixrebuild = "cd ~/mysystem && sudo nixos-rebuild switch --flake .#myNixos";
-      		nixedit = "nvim ~/mysystem/nixos/configuration.nix";
-		nixupdate = "cd ~mysystem && nix flake update && nixrebuild";
+      		nixedithome = "nvim /home/garcia/mysystem/nixos/home.nix";
+      		nixrebuild = "cd /home/garcia/mysystem && sudo nixos-rebuild switch --flake .#myNixos";
+      		nixedit = "nvim /home/garcia/mysystem/nixos/configuration.nix";
+		nixupdate = "cd /home/garcia/mysystem && sudo nix flake update && nixrebuild";
     	};
    };
 }
