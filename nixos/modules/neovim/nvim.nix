@@ -25,8 +25,18 @@
 	   width = 30,
 	},
      })
-     
-     vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { silent = true })
+
+     vim.api.nvim_create_autocmd({ "VimEnter" }, {
+       callback = function()
+
+    vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { silent = true })
+
+    vim.api.nvim_create_autocmd({ "VimEnter" }, {
+        callback = function()
+          require("nvim-tree.api").tree.open()
+          vim.cmd("wincmd p")
+        end
+      })
    '';
  };
 }
