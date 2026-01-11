@@ -2,41 +2,39 @@
 
 {
   programs.neovim = {
-     enable = true;
-     defaultEditor = true;
-     viAlias = true;
-     vimAlias = true;
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
 
-  plugins = with pkgs.vimPlugins; [
-     nvim-tree-lua
-     nvim-web-devicons
-     nvim-lspconfig
-     telescope-nvim
-     nvim-treesitter.withAllGrammars
-     gruvbox-material-nvim
-     ];
-  extraLuaConfig = ''
-     vim.g.gruvbox_material_background = 'soft'
-     vim.g.gruvbox_material_better_performance = 1
-     vim.cmd.colorscheme "gruvbox-material"
+    plugins = with pkgs.vimPlugins; [
+      nvim-tree-lua
+      nvim-web-devicons
+      nvim-lspconfig
+      telescope-nvim
+      nvim-treesitter.withAllGrammars
+      gruvbox-material
+    ];
 
-     require("nvim-tree").setup({
-         view = {
-	   width = 30,
-	},
-     })
+    extraLuaConfig = ''
+      vim.g.gruvbox_material_background = 'soft'
+      vim.g.gruvbox_material_better_performance = 1
+      vim.cmd.colorscheme "gruvbox-material"
 
-     vim.api.nvim_create_autocmd({ "VimEnter" }, {
-       callback = function()
+      require("nvim-tree").setup({
+        view = {
+          width = 30,
+        },
+      })
 
-    vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { silent = true })
+      vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { silent = true })
 
-    vim.api.nvim_create_autocmd({ "VimEnter" }, {
+      vim.api.nvim_create_autocmd({ "VimEnter" }, {
         callback = function()
           require("nvim-tree.api").tree.open()
-          vim.cmd("wincmd p")
+          vim.cmd("wincmd p") -- Volta o foco para o arquivo
         end
       })
-   '';
- };
+    ''; 
+  };
 }
