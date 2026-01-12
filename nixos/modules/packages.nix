@@ -3,10 +3,8 @@
 {
   
    environment.systemPackages = with pkgs; [
-	matugen
-	hydralauncher
-	gamescope
-	chafa
+	pywal16
+	imagemagick
 	unzip
 	zip
 	p7zip
@@ -18,8 +16,6 @@
 	git
 	flatpak
 	gnome-software
-	gedit
-	vlc
 	protontricks
 	easyeffects
 	gparted
@@ -28,11 +24,12 @@
 	bluez
 	bluez-tools
 	logmein-hamachi
-	haguichi
 	slurp
 	grim
 	kdePackages.okular
 	python3
+	kdePackages.dolphin
+	pipx
      ];
   
   fonts = {

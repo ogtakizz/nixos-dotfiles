@@ -3,36 +3,40 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix4nvchad = {
+      url = "github:nix-community/nix4nvchad";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @inputs:
-  let
-    system = "x86_64-linux";
-  in
-  {
-    nixosConfigurations.myNixos = nixpkgs.lib.nixosSystem {
-      inherit system;
-
-      specialArgs = {
-        inherit inputs;
+    outputs = { self, nixpkgs, home-manager, ... }@inputs:
+    let
+      system = "x86_64-linux";
+      lib = nixpkgs.lib;
+      extraSpecialArgs = { inherit system inputs; };  
+      specialArgs = { inherit system inputs; };       
+    in 
+    {
+      nixosConfigurations = {
+        myNixos = lib.nixosSystem {
+          specialArgs = {
+            inherit system inputs;          
+          };
+        modules = [
+          ./nixos/configuration.nix
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              extraSpecialArgs = { inherit system inputs; };
+              useGlobalPkgs = true;
+              useUserPackages = true;
+            };
+          }
+	];
       };
-
-      modules = [
-        ./nixos/configuration.nix
-
-        # módulo do Home Manager
-        home-manager.nixosModules.home-manager
-
-        # opções globais
-        {
-          nixpkgs.config.allowUnfree = true;
-        }
-      ];
     };
   };
 }

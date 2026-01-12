@@ -1,10 +1,13 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports = [
      ./modules/zsh.nix
-     ./modules/neovim/nvim.nix
+#   ./modules/neovim/nvim.nix
+     inputs.nix4nvchad.homeManagerModule
   ];
+
+  programs.nvchad.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -33,7 +36,6 @@
 	discord
 	heroic
 	lutris
-	alacritty
 	btop
 	fastfetch
 	scrcpy
@@ -44,7 +46,13 @@
 	libreoffice-fresh
 	cava
 	tty-clock
-	pipx
+	vlc
+	gedit
+	hydralauncher
+	gamescope
+	haguichi
+	
+
   ];
 
   home.file = {

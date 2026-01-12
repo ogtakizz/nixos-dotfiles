@@ -2,7 +2,7 @@
 
 {
   networking = {
-    hostName = "nixos";
+    hostName = "NixBTW";
     
     networkmanager.enable = true;
 
