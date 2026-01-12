@@ -3,11 +3,9 @@
 {
   imports = [
      ./modules/zsh.nix
-#   ./modules/neovim/nvim.nix
+    ./modules/nvchad/nvchad.nix
      inputs.nix4nvchad.homeManagerModule
   ];
-
-  programs.nvchad.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
