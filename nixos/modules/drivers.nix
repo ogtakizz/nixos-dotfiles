@@ -1,15 +1,33 @@
 { pkgs, ... }:
 
 {
+   hardware.enableRedistributableFirmware = true;
+   hardware.cpu.intel.updateMicrocode = true;
+
    services.thermald.enable = true;
+   services.auto-cpufreq.enable = false;
+   services.auto-cpufreq.settings = {
+      battery = {
+        governor = "powersave";
+        turbo = "never";
+      };
+      charger = {
+        governor = "performance";
+        turbo = "always";
+      };
+   };
 
    hardware.graphics = {
      enable = true;
      extraPackages = with pkgs; [
-       intel-media-driver
-       libvdpau-va-gl
+      intel-media-driver
+      intel-vaapi-driver
+      libvdpau-va-gl
+      vpl-gpu-rt
      ];
    };
+
+   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
 
    hardware.bluetooth.enable = true;
    hardware.bluetooth.settings = {

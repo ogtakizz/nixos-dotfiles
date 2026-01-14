@@ -28,8 +28,17 @@
   fileSystems."/mnt/jogos_windows" = {
   device = "/dev/disk/by-uuid/455110F54AEDA354";
   fsType = "ntfs-3g";
-  options = [ "rw" "uid=1000" "gid=1000" "umask=0022" "nofail" ];
+  options = [
+      "rw" 
+      "uid=1000" 
+      "gid=100" 
+      "umask=000"
+      "exec" 
+      "nofail" 
+    ];
   };
+
+  boot.supportedFilesystems = ["ntfs"];
 
   # Enable Java on the system
   programs.java = {
@@ -89,22 +98,18 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
-  # Enable Flakes 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Install firefox.
   programs.firefox.enable = true;
   
-  # Install steam
   programs.steam = {
     enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  remotePlay.openFirewall = true; 
+  dedicatedServer.openFirewall = true; 
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Some programs need SUID wrappers, can be configured further or are

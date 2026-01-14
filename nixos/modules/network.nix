@@ -3,6 +3,7 @@
 {
   networking = {
     hostName = "NixBTW";
+    firewall.checkReversePath = false;
     
     networkmanager.enable = true;
 
