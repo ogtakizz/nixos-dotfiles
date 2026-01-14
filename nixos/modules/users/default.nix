@@ -11,10 +11,6 @@
        "video"
        "uinput"
     ];
-  
-  packages = with pkgs; [
-
-  ];
  };
-
+  users.defaultUserShell = pkgs.zsh;
 }

@@ -2,7 +2,7 @@
 
 {
   imports = [
-     ./modules/zsh.nix
+     ./modules/zsh
     ./modules/nvchad/nvchad.nix
   ];
 

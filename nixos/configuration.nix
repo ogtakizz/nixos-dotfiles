@@ -9,10 +9,11 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/boot.nix
-      ./modules/packages.nix
+      ./modules/packages
+      ./modules/programs
       ./modules/drivers.nix
       ./modules/network.nix     
-      ./modules/users.nix
+      ./modules/users
       ./modules/hyprland.nix
       inputs.home-manager.nixosModules.home-manager
     ];
@@ -40,30 +41,11 @@
 
   boot.supportedFilesystems = ["ntfs"];
 
-  # Enable Java on the system
-  programs.java = {
-    enable = true;
-    package = pkgs.openjdk25;
-  };
-
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Enable ZRAM
   zramSwap.enable = true;
-
-  # Enable Hamachi
-  services.logmein-hamachi.enable = true;
-
-  # Enable Flatpak support system-wide
-  services.flatpak.enable = true;
-  
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
 
   services.dbus.enable = true;
 
@@ -73,14 +55,6 @@
     variant = "";
   };
 
-# Enable zsh system-wide
-  programs.zsh = {
-    enable = true;  
-  }; 
-
-  # Set zsh as default shell for all users
-  users.defaultUserShell = pkgs.zsh;
- 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -104,12 +78,6 @@
 
   programs.firefox.enable = true;
   
-  programs.steam = {
-    enable = true;
-  remotePlay.openFirewall = true; 
-  dedicatedServer.openFirewall = true; 
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   # Some programs need SUID wrappers, can be configured further or are
