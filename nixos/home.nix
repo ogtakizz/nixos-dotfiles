@@ -4,6 +4,8 @@
   imports = [
      ./modules/zsh
     ./modules/nvchad/nvchad.nix
+    inputs.spicetify-nix.homeManagerModules.default
+    ./modules/spicetify
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -35,15 +37,18 @@
   }; 
 
   home.packages = with pkgs; [
-	matugen
+	pipes-rs
+  matugen
   discord
 	heroic
 	lutris
 	btop
 	fastfetch
+  bottles
 	scrcpy
 	vscodium
 	ani-cli
+  waydroid
 	jetbrains.idea
 	qbittorrent
   kdePackages.qtstyleplugin-kvantum
@@ -56,8 +61,7 @@
 	hydralauncher
 	gamescope
 	haguichi
-	
-
+  osu-lazer
   ];
 
   home.file = {

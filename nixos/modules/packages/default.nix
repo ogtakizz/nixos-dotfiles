@@ -3,6 +3,7 @@
 {
   
   environment.systemPackages = with pkgs; [
+    kdePackages.kdenlive
     mesa
     mesa-demos
     swww

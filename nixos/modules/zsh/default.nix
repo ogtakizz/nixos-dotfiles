@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-{
+{ 
   programs.zsh = {
     	enable = true;
     	autosuggestion.enable = true;
@@ -46,8 +46,9 @@
       		edithome = "nvim /home/garcia/mysystem/nixos/home.nix";
       		rebuild = "cd /home/garcia/mysystem && sudo nixos-rebuild switch --flake .#myNixos";
       		config = "nvim /home/garcia/mysystem/nixos/configuration.nix";
-		      update = "cd /home/garcia/mysystem && sudo nix flake update && nixrebuild";
-		      nixpkgs = "nvim /home/garcia/mysystem/nixos/modules/packages.nix";
+		      update = "cd /home/garcia/mysystem && sudo nix flake update && rebuild";
+		      nixpkgs = "nvim /home/garcia/mysystem/nixos/modules/packages/default.nix";
+          v = "nvim";
     	};
    };
 }

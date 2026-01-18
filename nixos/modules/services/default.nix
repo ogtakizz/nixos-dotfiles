@@ -17,7 +17,11 @@
   services.flatpak.enable = true;
 
   services.xserver.enable = true;
+  services.libinput.enable = true;
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
 
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-
+  services.desktopManager.plasma6.enable = true;
+}

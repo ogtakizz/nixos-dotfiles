@@ -23,6 +23,11 @@
       edk2-uefi-shell.sortKey = "z_edk2";
     };
   };
+  
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  
+  boot.supportedFilesystems = ["ntfs"];
+  
   boot.loader.systemd-boot.configurationLimit = 3;
   boot.loader.timeout = 3;
 }
