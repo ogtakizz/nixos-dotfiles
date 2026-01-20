@@ -9,14 +9,24 @@
     networkmanager.dns = "systemd-resolved";
 
     firewall = {
-      enable = true; 
+      enable = true;
+      trustedInterfaces = [ "virbr0" ];
       # allowedTCPPorts = [ 80 443 ];
       # allowedUDPPorts = [ 4000 5000 ];
     };
   };
+
+  services.openssh.enable = true;
+
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #  enable = true;
+  #  enableSSHSupport = true;
+  # }
   
   environment.systemPackages = with pkgs; [ 
-     dnsmasq 
+     dnsmasq
+     bridge-utils
   ];
 
   networking.resolvconf.enable = false;
