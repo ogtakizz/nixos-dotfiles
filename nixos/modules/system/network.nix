@@ -6,11 +6,30 @@
     firewall.checkReversePath = false;
     
     networkmanager.enable = true;
+    networkmanager.dns = "systemd-resolved";
 
     firewall = {
       enable = true; 
       # allowedTCPPorts = [ 80 443 ];
       # allowedUDPPorts = [ 4000 5000 ];
+    };
+  };
+  
+  environment.systemPackages = with pkgs; [ 
+     dnsmasq 
+  ];
+
+  networking.resolvconf.enable = false;
+
+  services.resolved = {
+    enable = true;
+    dnssec = "allow-downgrade";
+    settings = {
+      Resolve = {
+        DNS = "1.1.1.1#cloudflare-dns.com 1.0.0.1#cloudflare-dns.com";
+        DNSOverTLS = "yes";
+        DNSSEC = "allow-downgrade";
+      };
     };
   };
 

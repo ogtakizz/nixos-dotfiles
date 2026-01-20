@@ -15,6 +15,7 @@
       ./modules/garbage-collector
       ./modules/zsh/zsh.nix
       ./modules/sddm
+      ./modules/virt-manager
       inputs.home-manager.nixosModules.home-manager
     ];
 

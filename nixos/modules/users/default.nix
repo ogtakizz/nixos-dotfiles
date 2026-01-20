@@ -10,6 +10,7 @@
        "audio"
        "video"
        "uinput"
+       "libvirtd"
     ];
  };
   users.defaultUserShell = pkgs.zsh;

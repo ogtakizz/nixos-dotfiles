@@ -38,6 +38,7 @@
 
   home.packages = with pkgs; [
 	pipes-rs
+  gallery-dl
   matugen
   discord
 	heroic
