@@ -3,12 +3,10 @@
 {
   imports = [
      ./modules/zsh
-    ./modules/nvchad/nvchad.nix
+    ./modules/nvchad/default.nix
     inputs.spicetify-nix.homeManagerModules.default
     ./modules/spicetify
   ];
-
-  nixpkgs.config.allowUnfree = true;
 
   home.username = "garcia";
   home.homeDirectory = "/home/garcia";
@@ -28,11 +26,13 @@
 
   programs.git = {
     enable = true;
-    userName = "ogtakizz";
-    userEmail = "91156885+ogtakizz@users.noreply.github.com";
-    extraConfig = {
-       init.defaultBranch = "main";
-       credential.helper = "${pkgs.gh}/bin/gh auth git-helper";
+    settings = {
+      user = {
+        name = "ogtakizz";
+        email = "91156885+ogtakizz@users.noreply.github.com";
+      };
+      init.defaultBranch = "main";
+      credential.helper = "${pkgs.gh}/bin/gh auth git-helper";
     };
   }; 
 
@@ -72,7 +72,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     QT_QPA_PLATFORMTHEME = "gtk2";
-    QT_STYLE_OVERRIDE = "adwaita-dark";
+    QT_STYLE_OVERRIDE = "kvantum-dark";
     NIXOS_OZONE_WL = "1";
   };
 

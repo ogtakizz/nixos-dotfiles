@@ -20,8 +20,8 @@
 
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
-  #  enable = true;
-  #  enableSSHSupport = true;
+  # enable = true;
+  # enableSSHSupport = true;
   # }
   
   environment.systemPackages = with pkgs; [ 
@@ -33,7 +33,6 @@
 
   services.resolved = {
     enable = true;
-    dnssec = "allow-downgrade";
     settings = {
       Resolve = {
         DNS = "1.1.1.1#cloudflare-dns.com 1.0.0.1#cloudflare-dns.com";
