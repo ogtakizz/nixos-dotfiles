@@ -3,7 +3,7 @@
 {
   imports = [
      ./modules/zsh
-    ./modules/nvchad/default.nix
+    ./modules/nvchad
     inputs.spicetify-nix.homeManagerModules.default
     ./modules/spicetify
   ];
