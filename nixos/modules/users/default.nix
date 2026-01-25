@@ -11,7 +11,9 @@
        "video"
        "uinput"
        "libvirtd"
-       "kvm" 
+       "kvm"
+       "scanner"
+       "lp"
     ];
  };
   users.defaultUserShell = pkgs.zsh;

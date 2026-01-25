@@ -13,6 +13,7 @@
       ./modules/sddm
       ./modules/virt-manager
       ./modules/home-manager
+      ./modules/printer
     ];
 
   system.stateVersion = "25.11";
