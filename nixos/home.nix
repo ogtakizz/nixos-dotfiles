@@ -49,12 +49,10 @@
 	scrcpy
 	vscodium
 	ani-cli
-  waydroid
 	jetbrains.idea
 	qbittorrent
   kdePackages.qtstyleplugin-kvantum
   libsForQt5.qtstyleplugins
-	libreoffice-fresh
 	cava
 	tty-clock
 	vlc

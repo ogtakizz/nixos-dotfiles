@@ -1,9 +1,12 @@
 { inputs, config, pkgs, ... }:
 
 {
-  
+  imports = [
+    ./librewolf.nix
+    ./profile-manager.nix
+  ];  
+
   environment.systemPackages = with pkgs; [
-    kdePackages.kdenlive
     mesa
     mesa-demos
     swww
@@ -12,6 +15,7 @@
     openvpn
     mpv
     kitty
+    onlyoffice-desktopeditors
     pywal16
 	  imagemagick
 	  unzip
