@@ -16,6 +16,17 @@
     };
   };
 
+  nix.settings = {
+    substituters = [
+      "https://cache.nixos.org/"
+      "https://nix-gaming.cachix.org"
+    ];
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-gaming.cachix.org-1:nbnuYDEmS6SC9397G7KNoq9K9S4M8L857SThoXv2v/E="
+    ];
+  };
+
   services.openssh.enable = true;
 
   # programs.mtr.enable = true;

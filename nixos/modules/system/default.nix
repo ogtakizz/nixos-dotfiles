@@ -14,4 +14,10 @@
   zramSwap.enable = true;
   nixpkgs.config.allowUnfree = true;
   services.dbus.enable = true;
+  security.rtkit.enable = true;
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+  };  
+  hardware.graphics.enable32Bit = true;
 }

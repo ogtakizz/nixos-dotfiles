@@ -45,8 +45,6 @@
 	lutris
 	btop
 	fastfetch
-  bottles
-	scrcpy
 	vscodium
 	ani-cli
 	jetbrains.idea
@@ -60,7 +58,6 @@
 	hydralauncher
 	gamescope
 	haguichi
-  osu-lazer
   ];
 
   home.file = {
