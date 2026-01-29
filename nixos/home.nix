@@ -37,7 +37,8 @@
   }; 
 
   home.packages = with pkgs; [
-	pipes-rs
+	inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
+  pipes-rs
   gallery-dl
   matugen
   discord

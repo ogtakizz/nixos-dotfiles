@@ -7,6 +7,7 @@
   ];  
 
   environment.systemPackages = with pkgs; [
+    vesktop
     mesa
     mesa-demos
     swww
