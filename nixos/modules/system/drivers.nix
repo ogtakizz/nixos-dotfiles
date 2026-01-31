@@ -42,6 +42,17 @@
    services.udev.extraRules = ''
      KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
    '';
+
+   services.pipewire = {
+     extraConfig.pipewire."92-low-latency" = {
+       "contex.properties" = {
+         "default.clock.rate" = 48000;
+         "default.clock.quantum" = 1024;
+         "default.clock.min-quantum" = 512;
+         "default.clock.max-quantum" = 2048;
+       };
+     };
+   };
   
    users.groups.uinput = {};
 

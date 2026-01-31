@@ -6,6 +6,7 @@
     ./modules/nvchad
     inputs.spicetify-nix.homeManagerModules.default
     ./modules/spicetify
+    ./modules/system/wireplumber.nix
   ];
 
   home.username = "garcia";
@@ -37,7 +38,7 @@
   }; 
 
   home.packages = with pkgs; [
-	inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
+	inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
   pipes-rs
   gallery-dl
   matugen
