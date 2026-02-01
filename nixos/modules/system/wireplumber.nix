@@ -11,7 +11,9 @@
         ]
         actions = {
           update-props = {
-            session.suspend-on-idle = false
+            "session.suspend-on-idle" = false
+            "api.alsa.disable-batch" = true
+            "api.alsa.headroom" = 1024
           }
         }
       }

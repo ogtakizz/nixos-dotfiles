@@ -15,6 +15,7 @@
   nixpkgs.config.allowUnfree = true;
   services.dbus.enable = true;
   security.rtkit.enable = true;
+  services.upower.enable = true;
   programs.gamemode = {
     enable = true;
     enableRenice = true;

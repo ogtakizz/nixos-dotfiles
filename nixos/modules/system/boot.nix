@@ -26,6 +26,17 @@
   
   boot.kernelPackages = pkgs.linuxPackages_latest;
   
+  boot.extraModprobeConfig = ''
+    options snd_hda_intel power_save=0
+    options snd_hda_intel power_save_controller=N
+    options snd_sof_intel_hda_common hda_model=alc255-laptop
+  '';
+
+  boot.kernelParams = [ 
+    "pcie_aspm=off"
+    "snd_intel_dspcfg.dsp_driver=1"
+  ];
+  
   boot.supportedFilesystems = ["ntfs"];
   
   boot.loader.systemd-boot.configurationLimit = 3;
