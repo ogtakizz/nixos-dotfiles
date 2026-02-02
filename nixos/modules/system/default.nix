@@ -5,7 +5,7 @@
     ./boot.nix
     ./drivers.nix
     ./network.nix
-    ./disks.nix
+    #./disks.nix
     ./hyprland.nix
   ];
   
