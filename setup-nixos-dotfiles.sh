@@ -1,14 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -euo pipefail
 
-# Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
-# Function to print colored output
 print_status() {
     echo -e "${GREEN}[INFO]${NC} $1"
 }
@@ -21,15 +19,12 @@ print_error() {
     echo -e "${RED}[ERROR]${NC} $1"
 }
 
-# Default dotfiles repository
 DOTFILES_REPO="${DOTFILES_REPO:-}"
-DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.dotfiles}"
+DOTFILES_DIR="${DOTFILES_DIR:-$HOME/mysystem}"
 
-# Function to create necessary directories
 create_directories() {
     print_status "Creating necessary directories..."
     
-    # Common directories that should exist in a minimal NixOS installation
     local dirs=(
         "$HOME/Documents"
         "$HOME/Downloads"
@@ -54,7 +49,6 @@ create_directories() {
     done
 }
 
-# Function to prompt for dotfiles repository
 prompt_repo() {
     if [[ -z "$DOTFILES_REPO" ]]; then
         echo -n "Enter your dotfiles repository URL (GitHub): "
@@ -67,7 +61,6 @@ prompt_repo() {
     fi
 }
 
-# Function to clone dotfiles repository
 clone_dotfiles() {
     print_status "Cloning dotfiles from $DOTFILES_REPO..."
     
@@ -84,7 +77,6 @@ clone_dotfiles() {
     fi
 }
 
-# Function to check if flake.nix exists
 check_flake() {
     if [[ ! -f "$DOTFILES_DIR/flake.nix" ]]; then
         print_error "No flake.nix found in $DOTFILES_DIR"
@@ -93,19 +85,24 @@ check_flake() {
     print_status "Found flake.nix in dotfiles"
 }
 
-# Function to install NixOS flake
 install_flake() {
     print_status "Installing NixOS flake..."
     
+    if [ -f "/etc/nixos/hardware-configuration.nix" ]; then
+      cp "/etc/nixos/hardware-configuration.nix" "$DOTFILES_DIR/nixos/hardware-configuration.nix"
+      print_status "hardware-configuration.nix atualizado"
+    else
+      print_error "hardware-configuration.nix não encontrado no sistema"
+      exit 1
+    fi
+
     cd "$DOTFILES_DIR"
     
-    # Check if we have sudo access
     if ! sudo -n true 2>/dev/null; then
         print_status "Requesting sudo access for NixOS configuration..."
         sudo -v || { print_error "Sudo access required for NixOS configuration"; exit 1; }
     fi
     
-    # Rebuild NixOS configuration
     if sudo nixos-rebuild switch --flake .; then
         print_status "Successfully installed NixOS flake configuration"
     else
@@ -114,20 +111,18 @@ install_flake() {
     fi
 }
 
-# Function to show usage
 usage() {
     echo "Usage: $0 [options]"
     echo "Options:"
     echo "  -r, --repo <url>    Dotfiles repository URL"
-    echo "  -d, --dir <path>    Dotfiles directory (default: ~/.dotfiles)"
+    echo "  -d, --dir <path>    Dotfiles directory (default: ~/mysystem)"
     echo "  -h, --help          Show this help message"
     echo ""
     echo "Environment variables:"
     echo "  DOTFILES_REPO       Dotfiles repository URL"
-    echo "  DOTFILES_DIR        Dotfiles directory (default: ~/.dotfiles)"
+    echo "  DOTFILES_DIR        Dotfiles directory (default: ~/mysystem)"
 }
 
-# Parse command line arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
         -r|--repo)
@@ -150,11 +145,9 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Main execution
 main() {
     print_status "Starting NixOS dotfiles setup..."
     
-    # Check if running on NixOS
     if [[ ! -f /etc/nixos/configuration.nix ]] && [[ ! -d /etc/nixos ]]; then
         print_warning "This script is designed for NixOS systems"
         read -p "Continue anyway? (y/N): " -n 1 -r
@@ -173,5 +166,4 @@ main() {
     print_status "NixOS dotfiles setup completed successfully!"
 }
 
-# Run main function
 main "$@"
