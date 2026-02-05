@@ -7,7 +7,11 @@
 	};
 
 	services.displayManager.sessionPackages = [ pkgs.hyprland ];
-  	services.displayManager.defaultSession = "hyprland";
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  };
 
 	environment.systemPackages = with pkgs; [
 		quickshell
@@ -16,6 +20,13 @@
 		networkmanagerapplet
 		playerctl
 		libnotify
+    waybar
+    wofi
+    grim
+    slurp
+    wl-clipboard
+    hypridle
+    hyprlock
 	];
 
 	hardware.bluetooth.enable = true;

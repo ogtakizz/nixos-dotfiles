@@ -3,6 +3,7 @@
 {
   imports =
      [
+     inputs.dms.nixosModules.dank-material-shell
      ./hardware-configuration.nix
       ./modules/packages
       ./modules/services
