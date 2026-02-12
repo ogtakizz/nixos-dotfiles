@@ -8,7 +8,7 @@
   ];  
 
   environment.systemPackages = with pkgs; [
-    antigravity
+    opencode
     mesa
     mesa-demos
     swww

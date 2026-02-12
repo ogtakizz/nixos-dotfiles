@@ -34,7 +34,7 @@
 
   boot.kernelParams = [ 
     "pcie_aspm=off"
-    "snd_intel_dspcfg.dsp_driver=1"
+    "snd_intel_dspcfg.dsp_driver=3"
   ];
   
   boot.supportedFilesystems = ["ntfs"];
