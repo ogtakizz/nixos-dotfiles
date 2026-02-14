@@ -1,16 +1,21 @@
 { pkgs, inputs, ... }:
 
 {
+  nixpkgs.overlays = [
+    inputs.millennium.overlays.default
+  ];
+
   programs.steam = {
     enable = true;
-  remotePlay.openFirewall = true;
-  dedicatedServer.openFirewall = true;
+    package = pkgs.millennium-steam;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
   };
 
   programs.java = {
     enable = true;
     package = pkgs.openjdk25;
-    };
+  };
   
   programs.dank-material-shell.enable = true;
   programs.dms-shell = {
@@ -27,6 +32,7 @@
     enableCalendarEvents = true;
   };
 
+  services.udisks2.enable = true;
 
   services.logmein-hamachi.enable = true;
   
@@ -39,5 +45,5 @@
     variant = "";
   };
 
-  services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = false;
 }

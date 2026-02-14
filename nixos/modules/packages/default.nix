@@ -9,6 +9,7 @@
 
   environment.systemPackages = with pkgs; [
     opencode
+    nautilus
     mesa
     mesa-demos
     swww
@@ -43,6 +44,7 @@
 	  kdePackages.dolphin
 	  pipx
     kdePackages.syntax-highlighting
+    kdePackages.ffmpegthumbs
     glib
     gtk3
     gobject-introspection

@@ -35,7 +35,22 @@
       init.defaultBranch = "main";
       credential.helper = "${pkgs.gh}/bin/gh auth git-helper";
     };
-  }; 
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    enableZshIntegration = true;
+  };
+
+  services.udiskie = {
+    enable = true;
+    settings = {
+      program_options = {
+        file_manager = "${pkgs.kdePackages.dolphin}/bin/dolhpin";
+      };
+    };
+  };
 
   home.packages = with pkgs; [
 	inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
@@ -71,6 +86,9 @@
     QT_QPA_PLATFORMTHEME = "gtk2";
     QT_STYLE_OVERRIDE = "kvantum-dark";
     NIXOS_OZONE_WL = "1";
+    GCM_CREDENTIAL_STORE = "cache";
+    GIT_ASKPASS = "";
+    SSH_ASKPASS = "";
   };
 
   # Let Home Manager install and manage itself.
