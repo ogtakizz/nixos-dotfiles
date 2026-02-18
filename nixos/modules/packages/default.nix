@@ -10,6 +10,7 @@
   environment.systemPackages = with pkgs; [
     opencode
     nautilus
+    bitwarden-desktop
     mesa
     mesa-demos
     swww
