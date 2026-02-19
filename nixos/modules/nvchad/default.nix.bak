@@ -1,23 +1,25 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, ... }: 
 
 {
   imports = [
     inputs.nix4nvchad.homeManagerModule
   ];
-
+  
   programs.nvchad = {
     enable = true;
     chadrcConfig = ''
-      ---@type ChadrcConfig
+      ---@type chadrcConfig
       local M = {}
 
       M.base46 = {
-        theme = "obsidian-ember",
+        theme = "onedark",
         transparency = true,
       }
 
       return M
+
     '';
+
     extraPackages = with pkgs; [
       nodePackages.bash-language-server
       docker-compose-language-service
