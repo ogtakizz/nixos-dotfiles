@@ -40,6 +40,7 @@
         initContent = "
 	   autoload -U promptinit; promptinit
 	   prompt pure	
+      export GPG_TTY=$(tty)
 	";   
 
         shellAliases = {

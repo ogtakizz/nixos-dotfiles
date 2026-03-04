@@ -32,10 +32,14 @@
     enableCalendarEvents = true;
   };
 
+  services.gvfs.enable = true;
+
   services.udisks2.enable = true;
 
   services.logmein-hamachi.enable = true;
   
+  services.joycond.enable = true;
+
   services.flatpak.enable = true;
 
   services.xserver.enable = true;
@@ -44,6 +48,6 @@
     layout = "us";
     variant = "";
   };
-
+  
   services.desktopManager.plasma6.enable = false;
 }

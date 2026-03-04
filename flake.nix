@@ -5,6 +5,9 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
+    nixpkgs-stable = {
+      url = "github:nixos/nixpkgs/nixos-25.11";
+    };
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,18 +37,23 @@
     };
   };
 
-    outputs = { self, nixpkgs, home-manager, dms, ... }@inputs:
+    outputs = { self, nixpkgs, home-manager, dms, nixpkgs-stable, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       extraSpecialArgs = { inherit system inputs; };  
-      specialArgs = { inherit system inputs; };       
+      specialArgs = { inherit system inputs; };   
+      pkgsStable = import nixpkgs-stable {
+        inherit system inputs;
+        config.allowUnfree = true;  
+      };
     in 
     {
       nixosConfigurations = {
         myNixos = lib.nixosSystem {
           specialArgs = {
-            inherit system inputs;          
+            inherit system inputs;
+            inherit pkgsStable;
           };
       modules = [
           ./nixos/configuration.nix
@@ -55,6 +63,13 @@
               useGlobalPkgs = true;
               useUserPackages = true;
             };
+          }
+          {
+            nixpkgs.overlays = [
+              (final: prev: {
+                khal = inputs.nixpkgs-stable.legacyPackages.${system}.khal;
+               })             
+            ];
           }
         ];
       };

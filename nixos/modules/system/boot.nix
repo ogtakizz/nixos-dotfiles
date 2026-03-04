@@ -35,6 +35,8 @@
   boot.kernelParams = [ 
     "pcie_aspm=off"
     "snd_intel_dspcfg.dsp_driver=3"
+    "nvme_core.default_ps_max_latency_us=0"
+    "split_lock_detect=off"
   ];
   
   boot.supportedFilesystems = ["ntfs"];

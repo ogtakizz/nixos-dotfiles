@@ -52,9 +52,21 @@
     };
   };
 
+  services.gpg-agent = {
+    enable = true;
+    pinentry = {
+      package = pkgs.pinentry-tty;
+    };
+    extraConfig = ''
+      allow-loopback-pinentry
+    '';
+  };
+
   home.packages = with pkgs; [
 	inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
   pipes-rs
+  gnupg
+  pinentry-tty
   gallery-dl
   matugen
   discord
@@ -66,6 +78,7 @@
 	ani-cli
 	jetbrains.idea
 	qbittorrent
+  wlr-randr
   kdePackages.qtstyleplugin-kvantum
   libsForQt5.qtstyleplugins
 	cava
@@ -74,7 +87,6 @@
 	gedit
 	hydralauncher
 	gamescope
-	haguichi
   ];
 
   home.file = {
@@ -89,6 +101,7 @@
     GCM_CREDENTIAL_STORE = "cache";
     GIT_ASKPASS = "";
     SSH_ASKPASS = "";
+    MOZ_ENABLE_WAYLAND = "1";
   };
 
   # Let Home Manager install and manage itself.

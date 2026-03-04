@@ -5,10 +5,14 @@
     ./librewolf.nix
     ./profile-manager.nix
     ./fonts.nix
+    ./pkgs-stable.nix
+    ./pkgs-unstable.nix
   ];  
-
-  environment.systemPackages = with pkgs; [
-    opencode
+  
+ environment.systemPackages = with pkgs; [
+    rbw
+    libmtp
+    mtpfs
     nautilus
     bitwarden-desktop
     mesa
@@ -18,36 +22,23 @@
     protonvpn-gui
     mpv
     kitty
-    onlyoffice-desktopeditors
     pywal
 	  imagemagickBig
-	  unzip
-	  zip
-	  p7zip
-	  unrar
 	  nwg-look	
 	  bibata-cursors
 	  wget
 	  git
 	  flatpak
-	  gnome-software
 	  protontricks
-	  easyeffects
 	  gparted
-	  ntfs3g
-	  edk2-uefi-shell
 	  bluez
 	  bluez-tools
 	  logmein-hamachi
-	  kdePackages.okular
 	  python3
     go
-	  kdePackages.dolphin
 	  pipx
-    kdePackages.syntax-highlighting
-    kdePackages.ffmpegthumbs
     glib
     gtk3
     gobject-introspection
-  ];
+  ]
 }

@@ -2,8 +2,7 @@
 ### MONITORS ###
 ################
 
-monitor = eDP-1, 1920x1080@60, 0x0, 1, bitdepth, 10
-monitor = HDMI-A-1, 1366x768@60, 1920x0, 1, bitdepth, 10
+monitor = eDP-1, 1920x1080, 0x0, 1, bitdepth, 10
 
 ################
 ### PROGRAMS ###
@@ -177,5 +176,3 @@ source = ~/.config/hypr/binds.conf
 ### WINDOWS AND WORKSPACES ###
 ##############################
 
-
-source = ./dms/outputs.conf

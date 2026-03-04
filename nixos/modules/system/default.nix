@@ -11,11 +11,15 @@
   
   programs.nix-ld.enable = true;
 
+  fonts.fontDir.enable = true;
+
   nix.settings.download-buffer-size = 250000000;
   nix.settings.experimental-features = [ "nix-command" "flakes"];
   
   zramSwap.enable = true;
   
+  nix.settings.max-jobs = 2;
+
   nixpkgs.config.allowUnfree = true;
   
   services.dbus.enable = true;
