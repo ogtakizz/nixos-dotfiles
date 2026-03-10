@@ -8,7 +8,7 @@
   nautilus
   bitwarden-desktop
   mesa
-  mesa-daemos
+  mesa-demos
   swww
   wireguard-tools
   protonvpn-gui

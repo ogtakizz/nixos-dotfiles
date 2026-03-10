@@ -49,7 +49,7 @@
          "default.clock.rate" = 44100;
          "default.clock.quantum" = 256;
          "default.clock.min-quantum" = 256;
-         "default.clock.max-quantum" = 1024;
+         "default.clock.max-quantum" = 8192;
        };
      };
    };

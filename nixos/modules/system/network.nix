@@ -5,8 +5,11 @@
     hostName = "NixBTW";
     firewall.checkReversePath = false;
     
-    networkmanager.enable = true;
-    networkmanager.dns = "systemd-resolved";
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+      wifi.powersave = false;
+    };
 
     firewall = {
       enable = true;

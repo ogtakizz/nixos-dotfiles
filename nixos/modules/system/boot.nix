@@ -37,6 +37,8 @@
     "snd_intel_dspcfg.dsp_driver=3"
     "nvme_core.default_ps_max_latency_us=0"
     "split_lock_detect=off"
+    "iwlwifi.power_save=0"
+    "iwlmvm.power_scheme=1"
   ];
   
   boot.supportedFilesystems = ["ntfs"];
