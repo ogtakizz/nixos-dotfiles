@@ -13,14 +13,13 @@
 
   fonts.fontDir.enable = true;
 
+  nix.settings.auto-optimise-store = true;
   nix.settings.download-buffer-size = 250000000;
   nix.settings.experimental-features = [ "nix-command" "flakes"];
-  
-  zramSwap.enable = true;
-  
   nix.settings.max-jobs = 2;
-
   nixpkgs.config.allowUnfree = true;
+
+  zramSwap.enable = true;
   
   services.dbus.enable = true;
   

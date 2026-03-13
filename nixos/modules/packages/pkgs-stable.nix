@@ -10,6 +10,7 @@
     kdePackages.kdenlive
     kdePackages.syntax-highlighting
     kdePackages.ffmpegthumbs
+    kdePackages.filelight
     gnome-software
     ntfs3g
     edk2-uefi-shell
