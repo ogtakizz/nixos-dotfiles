@@ -78,7 +78,6 @@
   gallery-dl
   matugen
   discord
-	heroic
 	lutris
 	btop
 	fastfetch

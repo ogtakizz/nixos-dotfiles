@@ -67,7 +67,7 @@
           {
             nixpkgs.overlays = [
               (final: prev: {
-                khal = inputs.nixpkgs-stable.legacyPackages.${system}.khal;
+                electron = inputs.nixpkgs-stable.legacyPackages.${system}.electron;
                })             
             ];
           }

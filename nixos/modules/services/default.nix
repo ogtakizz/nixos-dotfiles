@@ -4,6 +4,10 @@
   nixpkgs.overlays = [
     inputs.millennium.overlays.default
   ];
+  
+  programs.gpu-screen-recorder = {
+    enable = true;
+  };
 
   programs.steam = {
     enable = true;

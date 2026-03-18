@@ -17,8 +17,6 @@ $browser = librewolf
 ### AUTOSTART ###
 #################
 
-exec-once = /home/garcia/mysystem/scripts/start-gsr.sh &
-
 exec-once = dms run & 
 
 exec-once = easyeffects &
@@ -27,7 +25,7 @@ exec-once = swww-daemon &
 
 exec-once = hyprctl setcursor Bibata-Modern-Ice 24
 
-exec-once = nix run home/garcia/.config/quickshell
+exec-once = nix run ~/.config/quickshell
 
 #############################
 ### ENVIRONMENT VARIABLES ###
@@ -181,5 +179,3 @@ source = ~/.config/hypr/binds.conf
 
 
 source = ./dms/outputs.conf
-
-source = ./dms/cursor.conf

@@ -7,7 +7,6 @@
   libmtp
   mtpfs
   nautilus
-  bitwarden-desktop
   mesa
   mesa-demos
   swww
