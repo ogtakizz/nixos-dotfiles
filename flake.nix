@@ -35,9 +35,13 @@
     millennium = {
       url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     };
+    rusic = {
+      url = "github:temidaradev/rusic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-    outputs = { self, nixpkgs, home-manager, dms, nixpkgs-stable, ... }@inputs:
+    outputs = { self, nixpkgs, home-manager, dms, nixpkgs-stable, rusic, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;

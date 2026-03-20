@@ -23,4 +23,6 @@
   ];
 
   users.defaultUserShell = pkgs.zsh;
+
+  programs.fuse.userAllowOther = true;
 }

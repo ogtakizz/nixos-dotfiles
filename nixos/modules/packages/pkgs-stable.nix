@@ -19,5 +19,6 @@
     zip
     p7zip
     onlyoffice-desktopeditors
+    lunar-client
   ];
 }

@@ -23,6 +23,24 @@
       edk2-uefi-shell.sortKey = "z_edk2";
     };
   };
+
+  systemd.user.services.rclone-gdrive = {
+    after = [ "network-online.target" ];
+    wantedBy = [ "default.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.rclone}/bin/rclone mount gdrive: /home/garcia/nuvem/musicas \
+      --vfs-cache-mode full \
+      --vfs-cache-max-size 10G \
+      --allow-other \
+      --uid 1000 \
+      --gid 100 \
+      --vfs-cache-max-age 24h \
+      --buffer-size 32M";
+      ExecStop = "/run/current-system/sw/bin/fusermount -u /home/garcia/nuvem/musicas";
+      Restart = "on-failure";
+      RestartSec = "10s";
+    };
+  };
   
   boot.kernelPackages = pkgs.linuxPackages_latest;
   

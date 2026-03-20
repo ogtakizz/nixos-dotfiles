@@ -13,10 +13,24 @@
 
   fonts.fontDir.enable = true;
 
-  nix.settings.auto-optimise-store = true;
-  nix.settings.download-buffer-size = 250000000;
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
-  nix.settings.max-jobs = 2;
+  nix.settings = {
+    auto-optimise-store = true;
+    download-buffer-size = 250000000;
+    experimental-features = [ 
+      "nix-command" 
+      "flakes"
+    ];
+    max-jobs = 2;
+    substituters = [
+      "https://cache.nixos.org"
+      "https://rusic.cachix.org"
+    ];
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "rusic.cachix.org-1:WXMpGpamblLUiJtcoxBxGGGGwIcWxGPJBUxarLiqWmw="
+    ];
+  };
+ 
   nixpkgs.config.allowUnfree = true;
 
   zramSwap.enable = true;

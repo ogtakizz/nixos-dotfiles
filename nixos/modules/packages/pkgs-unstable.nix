@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -31,5 +31,7 @@
   glib
   gtk3
   gobject-introspection
+  inputs.rusic.packages.${system}.default
+  rclone
   ];
 }
