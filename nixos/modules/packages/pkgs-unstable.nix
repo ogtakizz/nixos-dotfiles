@@ -31,7 +31,6 @@
   glib
   gtk3
   gobject-introspection
-  inputs.rusic.packages.${system}.default
   rclone
   ];
 }

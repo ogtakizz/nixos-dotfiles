@@ -7,6 +7,8 @@
     ./network.nix
     #./disks.nix
     ./hyprland.nix
+    ./niri.nix
+    ./portals.nix
   ];
   
   programs.nix-ld.enable = true;
@@ -23,11 +25,9 @@
     max-jobs = 2;
     substituters = [
       "https://cache.nixos.org"
-      "https://rusic.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "rusic.cachix.org-1:WXMpGpamblLUiJtcoxBxGGGGwIcWxGPJBUxarLiqWmw="
     ];
   };
  

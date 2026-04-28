@@ -8,12 +8,6 @@
 
 	services.displayManager.sessionPackages = [ pkgs.hyprland ];
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = "*";
-  };
-
   services.dbus.implementation = "broker";
 
 	environment.systemPackages = with pkgs; [

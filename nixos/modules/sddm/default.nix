@@ -7,11 +7,12 @@
   
   programs.silentSDDM = {
     enable = true;
-    theme = "ken";
+    theme = "rei";
   };
-  
+
   services.displayManager.sddm = {
     enable = true;
     package = lib.mkForce pkgs.kdePackages.sddm;
+    theme = "silent";
   };
 }

@@ -32,16 +32,12 @@
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    millennium = {
-      url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
-    };
-    rusic = {
-      url = "github:temidaradev/rusic";
-      inputs.nixpkgs.follows = "nixpkgs";
+    niri-flake = {
+      url = "github:sodiboo/niri-flake";
     };
   };
 
-    outputs = { self, nixpkgs, home-manager, dms, nixpkgs-stable, rusic, ... }@inputs:
+    outputs = { self, nixpkgs, home-manager, dms, nixpkgs-stable, niri-flake, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -61,6 +57,7 @@
           };
       modules = [
           ./nixos/configuration.nix
+          niri-flake.nixosModules.niri
           home-manager.nixosModules.home-manager {
             home-manager = {
               extraSpecialArgs = { inherit system inputs; };

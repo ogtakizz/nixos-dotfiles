@@ -60,6 +60,23 @@
     };
   };
 
+  programs.gallery-dl = {
+    enable = true;
+    settings = {
+      load-config = ["/home/garcia/Documents/auth.json"];
+      extractor = {
+        base-directory = "~/gallery-dl";
+        archive = "~/gallery-dl/archive.sqlite";
+        twitter = {
+          module = "twitter";
+          cookies = "~/cookies.txt";
+          videos = true;
+          retweets = false;
+        };
+      };
+    };
+  };
+
   services.gpg-agent = {
     enable = true;
     pinentry = {
@@ -75,10 +92,8 @@
   pipes-rs
   gnupg
   pinentry-tty
-  gallery-dl
   matugen
   discord
-	lutris
 	btop
 	fastfetch
 	vscodium
@@ -94,6 +109,13 @@
 	gedit
 	hydralauncher
 	gamescope
+  brave
+  pcsx2
+  ppsspp
+  skyemu
+  ryubing
+  appimage-run
+  cemu
   ];
 
   home.file = {

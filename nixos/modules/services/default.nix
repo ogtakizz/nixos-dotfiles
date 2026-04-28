@@ -1,17 +1,22 @@
 { pkgs, inputs, ... }:
 
 {
-  nixpkgs.overlays = [
-    inputs.millennium.overlays.default
-  ];
-  
+  services.ollama = {
+    enable = true;
+    host = "0.0.0.0";
+  };
+
+  services.clamav = {
+    daemon.enable = true;
+    updater.enable = true;
+  };
+
   programs.gpu-screen-recorder = {
     enable = true;
   };
 
    programs.steam = {
     enable = true;
-    package = pkgs.millennium-steam;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
@@ -46,12 +51,24 @@
 
   services.flatpak.enable = true;
 
-  services.xserver.enable = true;
   services.libinput.enable = true;
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
   
-  services.desktopManager.plasma6.enable = false;
+  services.desktopManager = {
+    plasma6 = {
+      enable = false;
+    };
+  };
+
+  services.xserver = {
+    enable = true;
+    desktopManager = {
+      xfce = {
+        enable = true;
+      };
+    };
+  };
 }

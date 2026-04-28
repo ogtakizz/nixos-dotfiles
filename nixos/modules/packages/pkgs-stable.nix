@@ -20,5 +20,13 @@
     p7zip
     onlyoffice-desktopeditors
     lunar-client
+    rsync
+    cachix
+    jq
+    fzf
+    yt-dlp
+    ngrok
+    azahar
+    wine
   ];
 }
