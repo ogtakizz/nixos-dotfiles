@@ -2,7 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-  zed-editor
   rbw
   libmtp
   mtpfs
@@ -11,7 +10,7 @@
   mesa-demos
   swww
   wireguard-tools
-  protonvpn-gui
+  proton-vpn
   mpv
   kitty
   pywal

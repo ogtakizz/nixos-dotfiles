@@ -7,6 +7,7 @@
     extraSpecialArgs = {inherit inputs; };
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "bak";
   users = {
     garcia = ../../home.nix;
    };

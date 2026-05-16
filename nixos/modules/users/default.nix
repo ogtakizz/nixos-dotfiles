@@ -14,6 +14,7 @@
        "kvm"
        "scanner"
        "lp"
+       "input"
     ];
   };
 

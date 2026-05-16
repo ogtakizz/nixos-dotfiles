@@ -7,6 +7,8 @@
     inputs.spicetify-nix.homeManagerModules.default
     ./modules/spicetify
     ./modules/system/wireplumber.nix
+    ./modules/home-manager/createDirs.nix
+    ./modules/home-manager/servicesHome.nix
   ];
 
   home.username = "garcia";
@@ -26,70 +28,10 @@
     style.name = "kvantum";
   };
 
-  programs.gh = {
-    enable = true;
-    settings = {
-     git_protocol = "https";
-    };
-   };
-
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "ogtakizz";
-        email = "91156885+ogtakizz@users.noreply.github.com";
-      };
-      init.defaultBranch = "main";
-      credential.helper = "${pkgs.gh}/bin/gh auth git-helper";
-    };
-  };
-
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-    enableZshIntegration = true;
-  };
-
-  services.udiskie = {
-    enable = true;
-    settings = {
-      program_options = {
-        file_manager = "${pkgs.kdePackages.dolphin}/bin/dolhpin";
-      };
-    };
-  };
-
-  programs.gallery-dl = {
-    enable = true;
-    settings = {
-      load-config = ["/home/garcia/Documents/auth.json"];
-      extractor = {
-        base-directory = "~/gallery-dl";
-        archive = "~/gallery-dl/archive.sqlite";
-        twitter = {
-          module = "twitter";
-          cookies = "~/cookies.txt";
-          videos = true;
-          retweets = false;
-        };
-      };
-    };
-  };
-
-  services.gpg-agent = {
-    enable = true;
-    pinentry = {
-      package = pkgs.pinentry-tty;
-    };
-    extraConfig = ''
-      allow-loopback-pinentry
-    '';
-  };
-
   home.packages = with pkgs; [
 	inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
   pipes-rs
+  gallery-dl
   gnupg
   pinentry-tty
   matugen
@@ -116,6 +58,7 @@
   ryubing
   appimage-run
   cemu
+  wl-clicker
   ];
 
   home.file = {
