@@ -185,7 +185,7 @@ end)
 
 hl.config({
   input = {
-    kb_layout = "us",
+    kb_layout = "us, br",
     kb_variant = "",
     kb_model = "",
     kb_options = "grp:win_space_toggle",
@@ -219,6 +219,13 @@ local function toggleMonitor(state)
 end
 
 local mainMod = "SUPER"
+
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd([[hyprctl keyword monitor "eDP-1, disable"]]))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd([[hyprctl keyword monitor "eDP-1, preferred, 0x0, 1"]]))
+
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | wl-copy && wl-paste > ~/pics/Screenshot_$(date +%Y%m%d_%H%M%S).png]]))
+
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("grim - | wl-copy"))
 
 -- Salva o ultimo minuto gravado pela instancia rodando do gsr
 hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd(scriptsDir .. "saveClip.sh"))

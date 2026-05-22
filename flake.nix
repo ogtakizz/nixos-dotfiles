@@ -32,12 +32,13 @@
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri-flake = {
-      url = "github:sodiboo/niri-flake";
+    helium-browser = {
+      url = "path:/home/garcia/mysystem/nixos/modules/helium-browser";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-    outputs = { self, nixpkgs, home-manager, dms, nixpkgs-stable, niri-flake, ... }@inputs:
+    outputs = { self, nixpkgs, home-manager, dms, nixpkgs-stable, helium-browser, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
