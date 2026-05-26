@@ -23,6 +23,7 @@
     wl-clipboard
     hypridle
     hyprlock
+    uwsm
 	];
 
 	hardware.bluetooth.enable = true;

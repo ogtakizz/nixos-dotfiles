@@ -15,7 +15,6 @@
       ./modules/virt-manager
       ./modules/home-manager
       ./modules/printer
-      ./cachix/niri.nix
     ];
 
   system.stateVersion = "25.11";

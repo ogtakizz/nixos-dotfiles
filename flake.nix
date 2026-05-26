@@ -33,7 +33,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     helium-browser = {
-      url = "path:/home/garcia/mysystem/nixos/modules/helium-browser";
+      url = "path:./nixos/modules/helium-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -58,7 +58,6 @@
           };
       modules = [
           ./nixos/configuration.nix
-          niri-flake.nixosModules.niri
           home-manager.nixosModules.home-manager {
             home-manager = {
               extraSpecialArgs = { inherit system inputs; };

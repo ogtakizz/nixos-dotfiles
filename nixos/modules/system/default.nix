@@ -7,7 +7,6 @@
     ./network.nix
     #./disks.nix
     ./hyprland.nix
-    ./niri.nix
     ./portals.nix
   ];
   

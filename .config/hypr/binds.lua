@@ -1,30 +1,28 @@
 -------------------
 --- KEYBINDINGS ---
 -------------------
-
-local function toggleMonitor(state)
-  return function()
-    hl.exec_cmd([[hyprctl keyword monitor "eDP-1, ]] .. state .. [["]])
-  end
-end
-
 local mainMod = "SUPER"
 
--- Salva o ultimo minuto gravado pela instancia rodando do gsr
-hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd("kill -SIGRTMIN+3 $(cat /tmp/gsr.pid)"))
+-- Desliga o monitor do notebook
+hl.bind(mainMod .. " + M", hl.dsp.dpms({  action = 'disable', monitor = 'eDP-1' }))
+-- Liga o monitor do notebook novamente
+hl.bind(mainMod .. " + N", hl.dsp.dpms({  action = 'enable',  monitor = 'eDP-1' }))
 
--- Liga ou desliga o monitor do notebook, caso não esteja sendo usado
-hl.bind(mainMod .. " + M", toggleMonitor("disable"))
-hl.bind(mainMod .. " + N", toggleMonitor("enable"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | wl-copy && wl-paste > ~/pics/Screenshot_$(date +%Y%m%d_%H%M%S).png]]))
+
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("grim - | wl-copy"))
+
+-- Salva o ultimo minuto gravado pela instancia rodando do gsr
+hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd(ScriptsDir .. "saveClip.sh"))
 
 -- Abre o terminal (kitty)
-hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(Terminal))
 
 -- Abre o file manager (thunar)
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(FileManager))
 
 -- Abre o navegador (brave)
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(Browser))
 
 -- Fecha a janela em foco
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
@@ -34,7 +32,6 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("dms ipc call spotlight open"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("dms ipc call clipboard open"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("dms ipc call powermenu toggle"))
 
---
 --ToggleJanela Flutuante
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 
@@ -67,4 +64,3 @@ hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_S
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
-
