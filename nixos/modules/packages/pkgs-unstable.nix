@@ -26,7 +26,7 @@
   logmein-hamachi
   python3
   go
-  pipx
+#  pipx
   glib
   gtk3
   gobject-introspection

@@ -13,7 +13,7 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | wl-c
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("grim - | wl-copy"))
 
 -- Salva o ultimo minuto gravado pela instancia rodando do gsr
-hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd(ScriptsDir .. "saveClip.sh"))
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd(os.getenv("HOME") .. "/mysystem/scripts/saveClip.sh"))
 
 -- Abre o terminal (kitty)
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(Terminal))
@@ -32,6 +32,7 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("dms ipc call spotlight open"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("dms ipc call clipboard open"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("dms ipc call powermenu toggle"))
 
+--
 --ToggleJanela Flutuante
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 

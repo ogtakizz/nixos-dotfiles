@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-kill -SIGRTMIN+3 $(cat /tmp/gsr.pid)
+kill -37 $(cat /tmp/gsr.pid)

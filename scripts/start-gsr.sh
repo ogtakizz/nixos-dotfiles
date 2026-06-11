@@ -8,6 +8,9 @@ fi
 touch "$LOCK"
 trap "rm -rf $LOCK" EXIT
 
+# Ensures the script has all the user's Wayland and Hyprland variables at its disposal
+export PATH=/run/wrappers/bin:/run/current-system/sw/bin:$PATH
+
 # Waits 15 seconds after the monitor event fires, giving the system time to fully settle before querying monitors or restarting the recorder
 sleep 15
 
@@ -21,15 +24,13 @@ rm -f /tmp/gsr.pid
 # Make sure the output directory exists
 mkdir -p ~/vids/Clips
 
-# Asks Hyprland which monitors are currently active, then picks a recording target in priority order. Uses "screen" as a fallback if none of the other options is available
+# Asks Hyprland which monitors are currently active, then picks a recording target in priority order. Uses the laptop monitor as fallback, in case the external (main) monitor is unplugged.
 MONITOR=$(hyprctl monitors)
 
 if echo "$MONITOR" | grep -q "HDMI-A-1"; then
   TARGET="HDMI-A-1"
-elif echo "$MONITOR" | grep -q "eDP-1"; then
-  TARGET="eDP-1"
 else 
-  TARGET="screen"
+   TARGET="eDP-1"
 fi
 
 # Starts the recorder on the chosen monitor, keeping a rolling 60-second replay buffer saved to disk as MP4 with CBR at 20000kbps.
