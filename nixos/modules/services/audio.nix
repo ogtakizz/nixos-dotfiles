@@ -17,4 +17,8 @@
     "bluez5.roles" = [ "a2dp_sink" "a2dp_source" "headset_head_unit" "headset_audio_gateway" ];
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    pulseaudio
+  ];
 }

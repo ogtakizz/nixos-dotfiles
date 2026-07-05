@@ -31,7 +31,7 @@ Browser = "brave"
 
 hl.on("hyprland.start", function()
   hl.exec_cmd(terminal .. "&)")
-  hl.dsp.exec_cmd("sleep 3 && dms run")
+  hl.exec_cmd("sleep 3 && dms run &")
   hl.exec_cmd("easyeffects &")
   hl.exec_cmd("swww-daemon")
   hl.dsp.exec_cmd(os.getenv("HOME") .. "/mysystem/scripts/start-gsr.sh")

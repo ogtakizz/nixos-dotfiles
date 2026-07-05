@@ -65,13 +65,7 @@
               useUserPackages = true;
             };
           }
-          {
-            nixpkgs.overlays = [
-              (final: prev: {
-                electron = inputs.nixpkgs-stable.legacyPackages.${system}.electron;
-               })             
-            ];
-          }
+           
         ];
       };
     };
