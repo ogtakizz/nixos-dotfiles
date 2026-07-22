@@ -15,6 +15,8 @@
       ./modules/virt-manager
       ./modules/home-manager
       ./modules/printer
+      ./modules/waydroid
+      ./modules/droidcam
     ];
 
   system.stateVersion = "25.11";
