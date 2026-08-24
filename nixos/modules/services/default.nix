@@ -1,6 +1,9 @@
 { pkgs, inputs, ... }:
 
 {
+  imports = [
+    ./audio.nix
+  ];
   services.ollama = {
     enable = true;
     host = "0.0.0.0";
@@ -31,7 +34,7 @@
     enable = true;
     package = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
     systemd = {
-      enable = true;
+      enable = false;
       restartIfChanged = true;
     };
     enableSystemMonitoring = true;
@@ -59,7 +62,7 @@
   
   services.desktopManager = {
     plasma6 = {
-      enable = false;
+      enable = true;
     };
   };
 
@@ -67,7 +70,7 @@
     enable = true;
     desktopManager = {
       xfce = {
-        enable = true;
+        enable = false;
       };
     };
   };

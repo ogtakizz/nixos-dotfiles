@@ -15,8 +15,9 @@
       ./modules/virt-manager
       ./modules/home-manager
       ./modules/printer
-      ./modules/waydroid
       ./modules/droidcam
+      ./modules/waydroid
+      ./modules/aerothemeplasma-nix
     ];
 
   system.stateVersion = "25.11";

@@ -31,6 +31,5 @@
   gtk3
   gobject-introspection
   rclone
-  inputs.helium-browser.packages.x86_64-linux.default
   ];
 }

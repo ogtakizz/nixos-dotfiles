@@ -32,13 +32,20 @@
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    helium-browser = {
-      url = "path:./nixos/modules/helium-nix";
+    aerothemeplasma-nix = {
+      url = "github:nyakase/aerothemeplasma-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak?ref=latest";
+    };
+    quickshell = {
+      url = "github:quickshell-mirror/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-    outputs = { self, nixpkgs, home-manager, dms, nixpkgs-stable, helium-browser, ... }@inputs:
+    outputs = { self, nixpkgs, home-manager, dms, nix-flatpak, nixpkgs-stable, aerothemeplasma-nix, quickshell, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -65,7 +72,6 @@
               useUserPackages = true;
             };
           }
-           
         ];
       };
     };

@@ -9,6 +9,7 @@
     ./modules/system/wireplumber.nix
     ./modules/home-manager/createDirs.nix
     ./modules/home-manager/servicesHome.nix
+    ./modues/home-manager/end4-shell.nix
   ];
 
   home.username = "garcia";
@@ -53,12 +54,10 @@
 	gamescope
   brave
   pcsx2
-  ppsspp
-  skyemu
   ryubing
   appimage-run
-  cemu
   wl-clicker
+  thunar
   ];
 
   home.file = {
