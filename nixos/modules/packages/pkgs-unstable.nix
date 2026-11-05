@@ -4,11 +4,10 @@
   environment.systemPackages = with pkgs; [
   rbw
   libmtp
-  mtpfs
   nautilus
   mesa
   mesa-demos
-  swww
+  awww
   wireguard-tools
   proton-vpn
   mpv
@@ -24,9 +23,7 @@
   bluez
   bluez-tools
   logmein-hamachi
-  python3
-  go
-#  pipx
+  bottles
   glib
   gtk3
   gobject-introspection

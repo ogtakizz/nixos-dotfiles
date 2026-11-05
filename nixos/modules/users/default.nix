@@ -15,6 +15,7 @@
        "scanner"
        "lp"
        "input"
+       "ydotool"
     ];
   };
 

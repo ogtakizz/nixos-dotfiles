@@ -24,5 +24,9 @@
     ngrok
     azahar
     wine
+    libxkbcommon
+    libxcb
+    kdePackages.qtstyleplugin-kvantum
+    libsForQt5.qtstyleplugins
   ];
 }

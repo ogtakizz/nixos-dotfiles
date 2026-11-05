@@ -10,6 +10,8 @@ hl.bind(mainMod .. " + N", hl.dsp.dpms({  action = 'enable',  monitor = 'eDP-1' 
 
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | wl-copy && wl-paste > ~/pics/Screenshot_$(date +%Y%m%d_%H%M%S).png]]))
 
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(". /home/garcia/mysystem/scripts/spam-key.sh"))
+
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("grim - | wl-copy"))
 
 -- Salva o ultimo minuto gravado pela instancia rodando do gsr
@@ -31,6 +33,7 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("dms ipc call spotlight open"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("dms ipc call clipboard open"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("dms ipc call powermenu toggle"))
+hl.bind("SUPER + Slash", hl.dsp.global("quickshell:cheatsheetToggle"), { description = "Shell: Toggle cheatsheet" })
 
 --
 --ToggleJanela Flutuante

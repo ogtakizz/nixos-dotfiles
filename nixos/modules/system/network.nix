@@ -53,7 +53,7 @@
     settings = {
       Resolve = {
         DNS = "1.1.1.1#cloudflare-dns.com 1.0.0.1#cloudflare-dns.com";
-        DNSOverTLS = "yes";
+        DNSOverTLS = "opportunistic";
         DNSSEC = "allow-downgrade";
       };
     };

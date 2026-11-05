@@ -9,7 +9,7 @@
     ./modules/system/wireplumber.nix
     ./modules/home-manager/createDirs.nix
     ./modules/home-manager/servicesHome.nix
-    ./modues/home-manager/end4-shell.nix
+    ./modules/home-manager/pkgs.nix
   ];
 
   home.username = "garcia";
@@ -17,8 +17,8 @@
   home.stateVersion = "25.05";
 
   home.pointerCursor = {
+    enable = true;
     gtk.enable = true;
-    #x11.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
     size = 24;
@@ -28,37 +28,6 @@
     platformTheme.name = "kvantum";
     style.name = "kvantum";
   };
-
-  home.packages = with pkgs; [
-	inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
-  pipes-rs
-  gallery-dl
-  gnupg
-  pinentry-tty
-  matugen
-  discord
-	btop
-	fastfetch
-	vscodium
-	ani-cli
-	jetbrains.idea
-	qbittorrent
-  wlr-randr
-  kdePackages.qtstyleplugin-kvantum
-  libsForQt5.qtstyleplugins
-	cava
-	tty-clock
-	vlc
-	gedit
-	hydralauncher
-	gamescope
-  brave
-  pcsx2
-  ryubing
-  appimage-run
-  wl-clicker
-  thunar
-  ];
 
   home.file = {
 

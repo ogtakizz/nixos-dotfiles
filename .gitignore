@@ -1,0 +1,6 @@
+*.qslog
+.direnv/
+*.bak
+*.nix2
+git-diagnostics-*.zip
+.config/quickshell/ii/

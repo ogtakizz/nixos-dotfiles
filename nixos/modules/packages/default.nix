@@ -6,6 +6,7 @@
     ./pkgs-stable.nix
     ./pkgs-unstable.nix
     ./flatpak.nix
+    ./langs.nix
   ];  
   
 }

@@ -17,7 +17,7 @@
       ./modules/printer
       ./modules/droidcam
       ./modules/waydroid
-      ./modules/aerothemeplasma-nix
+      ./modules/nix-ld
     ];
 
   system.stateVersion = "25.11";

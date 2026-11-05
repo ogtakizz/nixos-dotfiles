@@ -24,11 +24,6 @@
     dedicatedServer.openFirewall = true;
   };
 
-  programs.java = {
-    enable = true;
-    package = pkgs.openjdk25;
-  };
-  
   programs.dank-material-shell.enable = true;
   programs.dms-shell = {
     enable = true;
@@ -37,11 +32,6 @@
       enable = false;
       restartIfChanged = true;
     };
-    enableSystemMonitoring = true;
-    enableVPN = true;
-    enableDynamicTheming = true;
-    enableAudioWavelength = true;
-    enableCalendarEvents = true;
   };
 
   services.gvfs.enable = true;
@@ -74,4 +64,6 @@
       };
     };
   };
+
+  programs.ydotool.enable = true;
 }
