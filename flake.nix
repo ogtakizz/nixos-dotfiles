@@ -6,7 +6,7 @@
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
     nixpkgs-stable = {
-      url = "github:nixos/nixpkgs/nixos-25.11";
+      url = "github:nixos/nixpkgs/nixos-26.05";
     };
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
@@ -43,9 +43,16 @@
       url = "github:quickshell-mirror/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
   };
 
-    outputs = { self, nixpkgs, home-manager, dms, nix-flatpak, nixpkgs-stable, aerothemeplasma-nix, quickshell, ... }@inputs:
+    outputs = { self, nixpkgs, home-manager, dms, nix-flatpak, nixpkgs-stable, aerothemeplasma-nix, quickshell, zen-browser, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;

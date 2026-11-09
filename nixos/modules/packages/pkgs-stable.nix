@@ -3,7 +3,6 @@
 {
   environment.systemPackages = with pkgsStable; [
     opencode
-    easyeffects
     kdePackages.okular
     kdePackages.kio-extras
     kdePackages.kdenlive
@@ -28,5 +27,6 @@
     libxcb
     kdePackages.qtstyleplugin-kvantum
     libsForQt5.qtstyleplugins
+    pywalfox-native
   ];
 }

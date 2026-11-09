@@ -20,7 +20,6 @@
         "net.lutris.Lutris"
         "org.telegram.desktop"
         "org.vinegarhq.Sober"
-        "app.zen_browser.zen"
       ];
       update.onActivation = true;
     };

@@ -3,3 +3,8 @@
 [templates.cava]
 input_path = '/home/garcia/.config/matugen/templates/cava.ini'
 output_path = '/home/garcia/.config/cava/themes/matugen'
+
+[templates.pywalfox]
+input_path = '/home/garcia/.config/matugen/templates/pywalfox.json'
+output_path ='/home/garcia/.cache/wal/colors.json'
+post_hook ='pywalfox update'

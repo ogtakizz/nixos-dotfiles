@@ -42,6 +42,11 @@
       libpulseaudio
       pipewire
       openal
+      libwebp
+      libopus
+      libdecor
+      libayatana-appindicator
+      ffmpeg
     ];
   };
 }

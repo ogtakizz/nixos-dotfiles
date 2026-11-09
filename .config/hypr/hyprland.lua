@@ -23,18 +23,18 @@ hl.monitor({
 
 Terminal = "kitty"
 FileManager = "thunar"
-Browser = "brave"
+Browser = "zen-beta"
+local gsr = os.getenv("HOME") .. "/mysystem/scripts/start-gsr.sh"
 
 -----------------
 --- AUTOSTART ---
 -----------------
 
 hl.on("hyprland.start", function()
-  hl.exec_cmd(terminal .. "&)")
-  hl.exec_cmd("sleep 3 && dms run &")
+  hl.exec_cmd("dms run --session &")
   hl.exec_cmd("easyeffects &")
-  hl.exec_cmd("swww-daemon")
-  hl.dsp.exec_cmd(os.getenv("HOME") .. "/mysystem/scripts/start-gsr.sh")
+  hl.exec_cmd("awww-daemon &")
+  hl.exec_cmd(gsr)
 end)
 
 
@@ -168,13 +168,9 @@ hl.window_rule({
     },
 })
 
-hl.on("monitor.added", function(m)
-  hl.exec_cmd("/home/garica/mysystem/start-gsr.sh")
-end)
+hl.on("monitor.added",   function(m) hl.exec_cmd(gsr) end)
 
-hl.on("monitor.removed", function(m)
-  hl.exec_cmd("/home/garcia/mysystem/scripts/start-gsr.sh")
-end)
+hl.on("monitor.removed", function(m) hl.exec_cmd(gsr) end)
 
 
 -------------
@@ -200,11 +196,11 @@ hl.config({
   },
 })
 
-hl.gesture = {
+hl.gesture({
   fingers = 3,
   direction = "horizontal",
   action = "workspace"
-}
+})
 
 -------------
 --- BINDS ---

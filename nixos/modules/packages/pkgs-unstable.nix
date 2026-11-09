@@ -27,6 +27,7 @@
   glib
   gtk3
   gobject-introspection
-  rclone
+  easyeffects
+  ffmpeg
   ];
 }

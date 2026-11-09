@@ -13,8 +13,7 @@
 
     config = {
       common.default = lib.mkForce [ "gtk" ];
-      hyprland.default = [ "hyprland" ];
-      niri.default = [ "gnome" ];
+      hyprland.default = [ "hyprland" "gtk" ];
     };
   };
 

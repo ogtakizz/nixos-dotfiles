@@ -30,10 +30,14 @@
     gnupg
     matugen
     wlr-randr
+    ncdu
 # --- Internet ---
     discord
     qbittorrent
-    brave
+    #brave
+    (inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+      nativeMessagingHosts = [ pkgs.pywalfox-native ];
+    })
 # --- Code ---
     vscodium
     jetbrains.idea
