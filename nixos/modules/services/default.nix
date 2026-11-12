@@ -25,7 +25,7 @@
   };
 
   programs.dank-material-shell.enable = true;
-  programs.dms-shell = {
+  programs.dux-shell = {
     enable = true;
     package = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
     systemd = {
