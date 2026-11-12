@@ -1,6 +1,24 @@
 { inputs, pkgs, ...}:
 
 {
+  imports = [
+    inputs.zapfast.homeManagerModules.default
+    inputs.zen-browser.homeModules.default
+  ];
+
+  programs.zapfast = {
+    enable = true;
+    settings = {
+      check_for_updates = false;
+    };
+  };
+
+  programs.zen-browser = {
+    enable = true;
+    setAsDefaultBrowser = true;
+    nativeMessagingHosts = [ pkgs.pywalfox-native ];
+  };
+
   home.packages = with pkgs; [
 # --- Games ---
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
@@ -10,6 +28,10 @@
     ryubing
     wl-clicker
     gamescope
+    lsfg-vk
+    lsfg-vk-ui
+    vulkan-tools
+    mangohud
 # --- Cli ---
     tree
     pipes-rs
@@ -34,10 +56,6 @@
 # --- Internet ---
     discord
     qbittorrent
-    #brave
-    (inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
-      nativeMessagingHosts = [ pkgs.pywalfox-native ];
-    })
 # --- Code ---
     vscodium
     jetbrains.idea

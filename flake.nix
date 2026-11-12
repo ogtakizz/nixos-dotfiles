@@ -50,9 +50,13 @@
         home-manager.follows = "home-manager";
       };
     };
+    zapfast = {
+      url = "github:crmne/zapfast";
+      inputs.nixpkgs.follows = "nixpkgs"; 
+    };
   };
 
-    outputs = { self, nixpkgs, home-manager, dms, nix-flatpak, nixpkgs-stable, aerothemeplasma-nix, quickshell, zen-browser, ... }@inputs:
+    outputs = { self, nixpkgs, home-manager, dms, nix-flatpak, nixpkgs-stable, aerothemeplasma-nix, quickshell, zen-browser, zapfast, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;

@@ -47,6 +47,12 @@
       libdecor
       libayatana-appindicator
       ffmpeg
+      fribidi
+      libgbm
+      libgpg-error
+      e2fsprogs
+      harfbuzz
+      expat
     ];
   };
 }
